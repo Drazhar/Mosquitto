@@ -1,0 +1,15 @@
+{
+  "name": "temp-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sensor.js",
+  "scripts": {
+    "start": "node sensor.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ds18b20-raspi": "^0.3.5",
+    "mqtt": "^4.2.5"
+  }
+}

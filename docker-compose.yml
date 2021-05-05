@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    ports:
+      - '1883:1883'
+      - '9001:9001' 
+    restart: always
+
+  node-temp:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: node-temp
+    restart: always
+    privileged: true
+    depends_on:
+      - mosquitto
