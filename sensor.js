@@ -1,24 +1,14 @@
-const sensor = require('ds18b20-raspi');
-const mqtt = require('mqtt');
+const sensor = require("ds18b20-raspi")
+const mqtt = require("mqtt")
 
-const client  = mqtt.connect('mqtt://mosquitto');
- 
-client.on('connect', function () {
-  client.subscribe('home/temperatures/boiler', function (err) {
+const client = mqtt.connect("mqtt://mosquitto")
+
+client.on("connect", function () {
+  client.subscribe("home/temperatures/boiler", function (err) {
     if (!err) {
-        setInterval(function() {
-            client.publish('home/temperatures/boiler', `${sensor.readC("28-00000ca9fb8f")}`);
-        }, 60000);
-        
+      setInterval(function () {
+        client.publish("home/temperatures/boiler", `${sensor.readC("28-00000ca9fb8f")}`)
+      }, 60000)
     }
   })
-
-  // client.subscribe('home/temperatures/basement', function (err) {
-  //   if (!err) {
-  //       setInterval(function() {
-  //           client.publish('home/temperatures/basement', `${sensor.readC("28-00000caaff23")}`);
-  //       }, 120000);
-        
-  //   }
-  // })
 })
