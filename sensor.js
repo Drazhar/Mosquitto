@@ -7,7 +7,7 @@ client.on("connect", function () {
   client.subscribe("home/temperatures/boiler", function (err) {
     if (!err) {
       setInterval(function () {
-        client.publish("home/temperatures/boiler", `${sensor.readC("28-00000ca9fb8f")}`)
+        client.publish("home/temperatures/boiler", `${sensor.readC("28-3c01f095f2f9")}`)
       }, 60000)
     }
   })
