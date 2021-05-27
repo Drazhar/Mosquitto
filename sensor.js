@@ -11,4 +11,11 @@ client.on("connect", function () {
       }, 60000)
     }
   })
+  client.subscribe("home/temperatures/garten", function (err) {
+    if (!err) {
+      setInterval(function () {
+        client.publish("home/temperatures/garten", `${sensor.readC("28-3c01f095ddc3")}`)
+      }, 60000)
+    }
+  })
 })
