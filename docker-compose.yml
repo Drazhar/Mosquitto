@@ -2,11 +2,13 @@ version: '3.8'
 
 services:
   mosquitto:
-    image: eclipse-mosquitto
+    image: arm32v6/eclipse-mosquitto:latest
     container_name: mosquitto
     ports:
       - '1883:1883'
       - '9001:9001' 
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
     restart: always
 
   node-temp:
