@@ -18,4 +18,11 @@ client.on("connect", function () {
       }, 60000)
     }
   })
+  client.subscribe("home/temperatures/keller", function (err) {
+    if (!err) {
+      setInterval(function () {
+        client.publish("home/temperatures/keller", `${sensor.readC("28-3c01f095ce5d")}`)
+      }, 60000)
+    }
+  })
 })
