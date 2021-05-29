@@ -7,6 +7,7 @@ client.on("connect", function () {
   subscribeSensor("home/temperatures/boiler", "28-3c01f095f2f9")
   subscribeSensor("home/temperatures/garten", "28-3c01f095ddc3")
   subscribeSensor("home/temperatures/keller", "28-3c01f095ce5d")
+  subscribeSensor("home/temperatures/buro", "28-3c01f0955ec7")
 })
 
 function subscribeSensor(mosquittoString, sensorString) {
